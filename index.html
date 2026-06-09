@@ -3,88 +3,126 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Beyond — מצאנו אתכם</title>
+  <title>Mindspace Beyond — תל אביב</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- HERO -->
   <section class="hero" id="hero">
-    <nav class="nav"><div class="nav-logo">Beyond</div></nav>
+    <nav class="nav">
+      <button class="nav-cta" id="navCtaBtn">קבעו פגישה</button>
+      <div class="nav-logo">Mindspace</div>
+    </nav>
     <div class="hero-content">
-      <p class="hero-eyebrow">Mindspace · Beyond · תל אביב גבעתיים</p>
-      <h1 class="hero-headline">יש מקומות שעובדים.<br/>ויש מקומות שמרגישים.</h1>
-      <p class="hero-sub">Beyond הוא לא עוד בניין משרדים. בריכה, מסעדות, קפה, ורכבת — הכל בפינת הרחוב. ויש לנו 11 סוויטות שמחכות לחברה הנכונה.</p>
-      <button class="btn-primary" id="startBtn">מצאו את הסוויטה שלכם</button>
+      <p class="hero-eyebrow">TEL AVIV · EARLY ACCESS</p>
+      <h1 class="hero-headline">Mindspace Beyond</h1>
+      <p class="hero-sub">מתחם העסקים החדש של תל אביב.<br/>על גבול ת"א – גבעתיים, במרחק דקות מרכבת ארלוזורוב.</p>
+      <button class="btn-primary" id="startBtn">גלו איזה משרד מחכה לכם ←</button>
     </div>
     <div class="hero-scroll-hint">↓</div>
   </section>
+
+  <!-- PERKS -->
   <section class="perks-strip">
     <div class="perk-item"><span class="perk-icon">🏊</span><span>Holmes Place Premium<br/>עם בריכת שחייה</span></div>
     <div class="perk-item"><span class="perk-icon">🚄</span><span>רכבת ורכבת קלה<br/>בדלת הכניסה</span></div>
-    <div class="perk-item"><span class="perk-icon">🍽️</span><span>מסעדות וקפה<br/>באותו מתחם</span></div>
-    <div class="perk-item"><span class="perk-icon">📐</span><span>11 סוויטות<br/>לחברות בכל הגדלים</span></div>
+    <div class="perk-item"><span class="perk-icon">🍽️</span><span>מסעדות וקולינריה<br/>באותו מתחם</span></div>
+    <div class="perk-item"><span class="perk-icon">📐</span><span>משרדים פרטיים<br/>לחברות בכל הגדלים</span></div>
     <div class="perk-item"><span class="perk-icon">🏙️</span><span>מגדל 80 קומות<br/>על גבול ת"א גבעתיים</span></div>
   </section>
+
+  <!-- QUIZ -->
   <section class="quiz-section" id="quizSection">
     <div class="quiz-container">
       <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="question-count" id="questionCount">1 / 5</div>
+      <div class="question-count" id="questionCount">שאלה 1 מתוך 6</div>
       <div class="questions-wrapper">
+
+        <!-- Q1: Industry -->
         <div class="question active" data-q="0">
-          <h2 class="q-title">מה הכי מתאר את החברה שלכם?</h2>
+          <h2 class="q-title">בואו נכיר —<br/>מה אתם בעצם?</h2>
+          <p class="q-sub">תהיו כנים. אנחנו לא שופטים. (ממש לא.)</p>
           <div class="options-grid">
-            <button class="option" data-value="tech">🚀 סטארטאפ טכנולוגי</button>
-            <button class="option" data-value="crypto">₿ קריפטו / Web3 / פינטק</button>
-            <button class="option" data-value="creative">🎨 קריאייטיב / מדיה / פרסום</button>
-            <button class="option" data-value="enterprise">🏛️ חברה מבוססת / תאגיד</button>
-            <button class="option" data-value="consulting">📊 ייעוץ / פיננסים / משפט</button>
-            <button class="option" data-value="other">✨ משהו אחר לגמרי</button>
+            <button class="option" data-value="investment">📈 השקעות / VC / פייננשל</button>
+            <button class="option" data-value="crypto">₿ קריפטו / Web3 / בלוקצ'יין</button>
+            <button class="option" data-value="tech">🚀 הייטק / פינטק / סטארטאפ</button>
+            <button class="option" data-value="lifestyle">🎨 לייפסטייל / מותג / קריאייטיב</button>
+            <button class="option" data-value="enterprise">🏛️ חברה מבוססת / תאגיד / משפט</button>
+            <button class="option" data-value="other">✨ משהו שעדיין לא המצאו לו שם</button>
           </div>
         </div>
+
+        <!-- Q2: Size -->
         <div class="question" data-q="1">
-          <h2 class="q-title">כמה אנשים ישתמשו בסוויטה?</h2>
+          <h2 class="q-title">כמה נשמות<br/>מגיעות איתכם?</h2>
+          <p class="q-sub">כולל מי שאומרים "עובד מהבית" אבל תמיד כאן בפועל.</p>
           <div class="options-grid size-grid">
-            <button class="option" data-value="small"><span class="size-num">5–15</span><span class="size-label">צוות מיקוד</span></button>
-            <button class="option" data-value="medium"><span class="size-num">16–30</span><span class="size-label">חברה צומחת</span></button>
-            <button class="option" data-value="large"><span class="size-num">31–60</span><span class="size-label">מחלקה שלמה</span></button>
-            <button class="option" data-value="xlarge"><span class="size-num">60+</span><span class="size-label">בית חדש לחברה</span></button>
+            <button class="option" data-value="s15"><span class="size-num">15–30</span><span class="size-label">צוות מיקוד</span></button>
+            <button class="option" data-value="s30"><span class="size-num">31–45</span><span class="size-label">חברה צומחת</span></button>
+            <button class="option" data-value="s45"><span class="size-num">46–80</span><span class="size-label">מחלקה שלמה</span></button>
+            <button class="option" data-value="s80"><span class="size-num">80+</span><span class="size-label">בית חדש לחברה</span></button>
           </div>
         </div>
+
+        <!-- Q3: Office lifestyle -->
         <div class="question" data-q="2">
-          <h2 class="q-title">מה הדבר שהכי חשוב לצוות שלכם?</h2>
+          <h2 class="q-title">מה גורם לצוות<br/>שלכם לקום בבוקר?</h2>
+          <p class="q-sub">מלבד המשכורת. ברור שמלבד המשכורת.</p>
           <div class="options-grid">
-            <button class="option" data-value="view">🌇 נוף שמשנה פרספקטיבה</button>
-            <button class="option" data-value="food">☕ קפה, אוכל ואנשים — בדלת ממול</button>
-            <button class="option" data-value="quiet">🎧 שקט ופוקוס — כשצריך לעבוד</button>
-            <button class="option" data-value="fitness">💪 גישה לחדר כושר ובריכה</button>
+            <button class="option" data-value="view">🌇 נוף שגורם לשלוח תמונה להורים</button>
+            <button class="option" data-value="food">☕ קפה ואוכל טוב — 80% מוטיבציה</button>
+            <button class="option" data-value="fitness">💪 חדר כושר ובריכה לפני/אחרי עבודה</button>
+            <button class="option" data-value="events">🎭 אירועים, לקוחות VIP, ייצוגיות</button>
           </div>
         </div>
+
+        <!-- Q4: Work style -->
         <div class="question" data-q="3">
-          <h2 class="q-title">איך נראה יום עבודה אצלכם?</h2>
+          <h2 class="q-title">יום עבודה<br/>אידיאלי אצלכם:</h2>
+          <p class="q-sub">תהיו כנים. אנחנו לא הבוסים שלכם (בינתיים).</p>
           <div class="options-grid">
-            <button class="option" data-value="collab">🤝 כולם יחד, כל הזמן — אנרגיה גבוהה</button>
-            <button class="option" data-value="focus">🧠 ראשים מורכנים, עמוק בתוך הקוד</button>
-            <button class="option" data-value="hybrid">⚡ חצי מרוץ, חצי מדיטציה</button>
-            <button class="option" data-value="meetings">📅 פגישות, לקוחות, ועוד פגישות</button>
+            <button class="option" data-value="collab">🤝 כולם ביחד — רועשים ומלאי אנרגיה</button>
+            <button class="option" data-value="focus">🧠 ממוקדים, שקטים, עמוק בתוך הקוד</button>
+            <button class="option" data-value="hybrid">⚡ חצי סטארטאפ, חצי בוטיק יוקרתי</button>
+            <button class="option" data-value="meetings">📅 פגישות עסקיות, לקוחות, ייצוגיות</button>
           </div>
         </div>
+
+        <!-- Q5: Current situation -->
         <div class="question" data-q="4">
-          <h2 class="q-title">לאן אתם הולכים מכאן?</h2>
+          <h2 class="q-title">מאיפה<br/>אתם מגיעים?</h2>
+          <p class="q-sub">כדי שנבין לאן אתם בורחים. ולמה.</p>
           <div class="options-grid">
-            <button class="option" data-value="fast">🔥 צומחים מהר — צריכים מקום שיתפתח איתנו</button>
-            <button class="option" data-value="stable">🏠 מחפשים בית לטווח ארוך</button>
-            <button class="option" data-value="expand">🌍 מרחיבים לתל אביב — זו הנקודה הראשונה</button>
-            <button class="option" data-value="move">📦 עוברים מהמקום הנוכחי — כבר הגיע הזמן</button>
+            <button class="option" data-value="moving">📦 עוברים ממתחם אחר — הגיע הזמן</button>
+            <button class="option" data-value="remote">🏠 עובדים מהבית — אבל הגוף כבר מספיק</button>
+            <button class="option" data-value="expanding">🌍 פותחים נקודה חדשה בתל אביב</button>
+            <button class="option" data-value="growing">🔥 גדלים מהר ומחפשים מקום שיגדל איתנו</button>
           </div>
         </div>
+
+        <!-- Q6: Wild card -->
+        <div class="question" data-q="5">
+          <h2 class="q-title">ושאלה אחרונה —<br/>מה הסוד שלכם?</h2>
+          <p class="q-sub">מה הדבר שבלעדיו המשרד פשוט לא עובד?</p>
+          <div class="options-grid">
+            <button class="option" data-value="aesthetic">🌿 שיהיה יפה ושקט — aesthetics matter</button>
+            <button class="option" data-value="privacy">🔐 פרטיות ואבטחה מלאה — אנחנו מזה</button>
+            <button class="option" data-value="wellness">🏋️ גישה יומית ל-Holmes Place, לא ברירה</button>
+            <button class="option" data-value="vibe">🎉 מקום שמרגיש כמו אירוע גם ביום שלישי</button>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
+
+  <!-- RESULT -->
   <section class="result-section hidden" id="resultSection">
     <div class="result-container">
-      <p class="result-eyebrow">הסוויטה שבחרנו בשבילכם</p>
+      <p class="result-eyebrow">המשרד שבחרנו בשבילכם</p>
       <h2 class="result-suite-name" id="resultSuiteName"></h2>
       <p class="result-reason" id="resultReason"></p>
       <div class="result-tags" id="resultTags"></div>
@@ -94,18 +132,20 @@
         <div class="highlight-card"><span class="highlight-icon">🌇</span><span class="highlight-text" id="hText3"></span></div>
       </div>
       <div class="result-cta">
-        <p class="result-cta-text">רוצים לראות אותה בעיניים?</p>
-        <button class="btn-primary" id="showFormBtn">קבעו סיור עכשיו</button>
-        <button class="btn-ghost" id="retakeBtn">חזרה לשאלות</button>
+        <p class="result-cta-text">רוצים לראות אותו בעיניים?</p>
+        <button class="btn-primary" id="showFormBtn">קבעו סיור עכשיו ←</button>
+        <button class="btn-ghost-light" id="retakeBtn">חזרה לשאלות</button>
       </div>
     </div>
   </section>
+
+  <!-- CONTACT -->
   <section class="contact-section hidden" id="contactSection">
     <div class="contact-container">
       <div class="contact-left">
-        <p class="contact-eyebrow">בואו לדבר</p>
-        <h2 class="contact-headline">נחזור אליכם<br/>תוך יום עסקים.</h2>
-        <p class="contact-sub">לא הבטחה. פשוט ככה אנחנו עובדים.</p>
+        <p class="contact-eyebrow">בואו נדבר</p>
+        <h2 class="contact-headline">רוצים לשמוע פרטים?</h2>
+        <p class="contact-sub">נחזור אליכם תוך יום עסקים. לא הבטחה — פשוט ככה אנחנו עובדים.</p>
         <div class="contact-details">
           <a href="tel:+97236001234" class="contact-item"><span class="contact-icon">📞</span><span>03-600-1234</span></a>
           <a href="mailto:beyond@mindspace.me" class="contact-item"><span class="contact-icon">✉️</span><span>beyond@mindspace.me</span></a>
@@ -115,15 +155,22 @@
       <div class="contact-right">
         <form class="contact-form" id="contactForm">
           <div class="form-row">
-            <input type="text" placeholder="שם מלא *" required />
-            <input type="text" placeholder="שם החברה *" required />
+            <input type="text" placeholder="שם פרטי *" required />
+            <input type="text" placeholder="שם משפחה *" required />
           </div>
           <div class="form-row">
             <input type="email" placeholder="אימייל *" required />
             <input type="tel" placeholder="טלפון *" required />
           </div>
-          <textarea placeholder="רוצים לספר לנו משהו? (לא חובה)" rows="3"></textarea>
-          <button type="submit" class="btn-primary btn-full">שלחו לנו</button>
+          <input type="text" placeholder="שם החברה *" required />
+          <select style="width:100%;padding:15px 18px;background:rgba(255,255,255,0.07);border:1.5px solid rgba(240,230,206,0.15);border-radius:10px;font-family:'Assistant',sans-serif;font-size:15px;color:rgba(200,184,152,0.8);direction:rtl;outline:none;appearance:none;cursor:pointer">
+            <option value="" disabled selected>גודל הצוות</option>
+            <option value="15-30">15–30 עובדים</option>
+            <option value="31-45">31–45 עובדים</option>
+            <option value="46-80">46–80 עובדים</option>
+            <option value="80+">80+ עובדים</option>
+          </select>
+          <button type="submit" class="btn-primary btn-full">לקביעת סיור ←</button>
           <p class="form-privacy">לא מעבירים פרטים לאף אחד. אי פעם.</p>
         </form>
         <div class="form-success hidden" id="formSuccess">
@@ -134,10 +181,12 @@
       </div>
     </div>
   </section>
+
   <footer class="footer">
-    <span>© 2025 Beyond · Mindspace</span>
-    <span>תל אביב, סבידור מרכז</span>
+    <span>© 2025 Mindspace Beyond · תל אביב</span>
+    <span>סבידור מרכז · גבעתיים</span>
   </footer>
+
   <script src="main.js"></script>
 </body>
 </html>
