@@ -25,21 +25,16 @@
     <div class="hero-scroll-hint">↓</div>
   </section>
 
-  <!-- PERKS -->
-  <section class="perks-strip">
-    <div class="perk-item"><span class="perk-icon">🏊</span><span>Holmes Place Premium<br/>עם בריכת שחייה</span></div>
-    <div class="perk-item"><span class="perk-icon">🚄</span><span>רכבת ורכבת קלה<br/>בדלת הכניסה</span></div>
-    <div class="perk-item"><span class="perk-icon">🍽️</span><span>מסעדות וקולינריה<br/>באותו מתחם</span></div>
-    <div class="perk-item"><span class="perk-icon">📐</span><span>משרדים פרטיים<br/>לחברות בכל הגדלים</span></div>
-    <div class="perk-item"><span class="perk-icon">🏙️</span><span>מגדל 80 קומות<br/>על גבול ת"א גבעתיים</span></div>
-  </section>
 
-  <!-- QUIZ -->
-  <section class="quiz-section" id="quizSection">
-    <div class="quiz-container">
-      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-      <div class="question-count" id="questionCount">שאלה 1 מתוך 6</div>
-      <div class="questions-wrapper">
+  <!-- QUIZ MODAL -->
+  <div class="quiz-modal" id="quizSection">
+    <div class="quiz-backdrop" id="quizBackdrop"></div>
+    <div class="quiz-card-stack">
+      <div class="quiz-card">
+        <button class="quiz-close" id="quizClose">✕</button>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="question-count" id="questionCount">שאלה 1 מתוך 6</div>
+        <div class="questions-wrapper">
 
         <!-- Q1: Industry -->
         <div class="question active" data-q="0">
@@ -115,9 +110,10 @@
           </div>
         </div>
 
+        </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <!-- RESULT -->
   <section class="result-section hidden" id="resultSection">
@@ -181,6 +177,58 @@
       </div>
     </div>
   </section>
+
+  <!-- INFO CTA -->
+  <div class="info-cta-wrap hidden" id="infoCta">
+    <p style="font-size:13px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--brown-light);margin-bottom:18px">רוצים לדעת עוד?</p>
+    <button class="btn-primary btn-dark" id="infoCtaBtn">ספרו לי יותר על המקום ↓</button>
+  </div>
+
+  <!-- INFO SECTIONS -->
+  <div class="info-sections" id="infoSections">
+    <!-- 1: Design -->
+    <div class="info-row">
+      <div class="info-img"><div class="info-img-placeholder">🏛️</div></div>
+      <div class="info-text">
+        <p class="info-eyebrow">עיצוב ואדריכלות</p>
+        <h3 class="info-title">חלל שנבנה<br/>כדי לעורר השראה</h3>
+        <p class="info-body">כל פרט ב-Mindspace Beyond תוכנן בקפידה — מהאדריכלות הפנימית ועד לתאורה. חללים שמרגישים כמו ביתכם, עובדים כמו משרד מהשורה הראשונה, ונראים כמו שיש לכם טעם מעולה.</p>
+      </div>
+    </div>
+    <!-- 2: Partners -->
+    <div class="info-row">
+      <div class="info-text">
+        <p class="info-eyebrow">שירותים ושותפים</p>
+        <h3 class="info-title">הכל כבר<br/>כאן בשבילכם</h3>
+        <p class="info-body">גישה ישירה לחדר הכושר ולבריכה של Holmes Place Premium, מסעדות ובתי קפה מהשורה הראשונה — הכל תחת אותה קורת גג. כי הפסקת הצהריים האידיאלית לא אמורה לדרוש תכנון מוקדם.</p>
+        <div class="info-partners">
+          <span class="partner-badge">Holmes Place</span>
+          <span class="partner-badge">קולינריה פרמיום</span>
+          <span class="partner-badge">בתי קפה</span>
+          <span class="partner-badge">שירותי רווחה</span>
+        </div>
+      </div>
+      <div class="info-img"><div class="info-img-placeholder">🏊</div></div>
+    </div>
+    <!-- 3: Experience -->
+    <div class="info-row">
+      <div class="info-img"><div class="info-img-placeholder">🏆</div></div>
+      <div class="info-text">
+        <p class="info-eyebrow">ניסיון של עשור</p>
+        <h3 class="info-title">עשר שנות<br/>אירוח בכיתה עולמית</h3>
+        <p class="info-body">Mindspace פועלת מאז 2014 ב-20+ ערים ברחבי העולם. למדנו מה חברות צריכות באמת — לא רק שולחן וכיסא, אלא קהילה, גמישות ושירות שמרגיש אישי. הניסיון הזה מגיע איתנו לתל אביב.</p>
+      </div>
+    </div>
+    <!-- 4: Events -->
+    <div class="info-row">
+      <div class="info-text">
+        <p class="info-eyebrow">אירועים ויוקרה</p>
+        <h3 class="info-title">האירועים הגדולים<br/>של מרכז ישראל</h3>
+        <p class="info-body">המתחם הגדול ביותר מסוגו בגוש דן — עם אולמות, חדרי כנסים וחללים שמתאימים לכל אירוע, מהשקת מוצר ועד כנס תעשייתי. כי חברות שגדלות צריכות גם מקום שמכיל את ההצלחה שלהן.</p>
+      </div>
+      <div class="info-img"><div class="info-img-placeholder">🎭</div></div>
+    </div>
+  </div>
 
   <footer class="footer">
     <span>© 2025 Mindspace Beyond · תל אביב</span>

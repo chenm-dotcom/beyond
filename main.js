@@ -29,18 +29,23 @@ function pickSuite(a){
   return suites[0];
 }
 
-function showSection(id){
-  ["hero","quizSection","resultSection","contactSection"].forEach(s=>{
-    const el=document.getElementById(s);
-    if(!el)return;
-    if(s==="quizSection"){
-      el.classList.toggle("active",s===id);
-      el.classList.toggle("hidden",s!==id);
-    }else{
-      el.classList.toggle("hidden",s!==id);
-    }
-  });
-  window.scrollTo({top:0,behavior:"smooth"});
+function openQuiz(){
+  const modal=document.getElementById("quizSection");
+  modal.classList.add("active");
+  document.body.style.overflow="hidden";
+}
+
+function closeQuiz(){
+  const modal=document.getElementById("quizSection");
+  modal.classList.remove("active");
+  document.body.style.overflow="";
+}
+
+function showContact(){
+  closeQuiz();
+  document.getElementById("contactSection").classList.remove("hidden");
+  document.getElementById("infoCta").classList.remove("hidden");
+  setTimeout(()=>document.getElementById("contactSection").scrollIntoView({behavior:"smooth"}),80);
 }
 
 function updateProgress(){
@@ -58,20 +63,28 @@ function goToQuestion(i){
 }
 
 function showResult(){
+  closeQuiz();
   const s=pickSuite(answers);
   document.getElementById("resultSuiteName").textContent=s.name;
   document.getElementById("resultReason").textContent=s.reason;
   document.getElementById("resultTags").innerHTML=s.tags.map(t=>`<span class="tag">${t}</span>`).join("");
   document.querySelectorAll(".highlight-text").forEach((el,i)=>{if(s.highlights[i])el.textContent=s.highlights[i]});
   document.querySelectorAll(".highlight-icon").forEach((el,i)=>{if(s.icons[i])el.textContent=s.icons[i]});
-  showSection("resultSection");
+  document.getElementById("resultSection").classList.remove("hidden");
+  document.getElementById("infoCta").classList.remove("hidden");
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
 document.addEventListener("DOMContentLoaded",()=>{
-  document.getElementById("startBtn").addEventListener("click",()=>{showSection("quizSection");updateProgress()});
+  document.getElementById("startBtn").addEventListener("click",()=>{updateProgress();openQuiz()});
+
   if(document.getElementById("navCtaBtn")){
-    document.getElementById("navCtaBtn").addEventListener("click",()=>{showSection("contactSection")});
+    document.getElementById("navCtaBtn").addEventListener("click",showContact);
   }
+
+  document.getElementById("quizClose").addEventListener("click",closeQuiz);
+  document.getElementById("quizBackdrop").addEventListener("click",closeQuiz);
+
   document.querySelectorAll(".option").forEach(btn=>{
     btn.addEventListener("click",()=>{
       btn.closest(".question").querySelectorAll(".option").forEach(o=>o.classList.remove("selected"));
@@ -83,17 +96,26 @@ document.addEventListener("DOMContentLoaded",()=>{
       },280);
     });
   });
-  document.getElementById("showFormBtn").addEventListener("click",()=>showSection("contactSection"));
+
+  document.getElementById("showFormBtn").addEventListener("click",showContact);
+
   document.getElementById("retakeBtn").addEventListener("click",()=>{
     Object.keys(answers).forEach(k=>delete answers[k]);
     document.querySelectorAll(".option").forEach(o=>o.classList.remove("selected"));
     currentQ=0;
     goToQuestion(0);
-    showSection("quizSection");
+    openQuiz();
   });
+
   document.getElementById("contactForm").addEventListener("submit",e=>{
     e.preventDefault();
     document.getElementById("contactForm").classList.add("hidden");
     document.getElementById("formSuccess").classList.remove("hidden");
+  });
+
+  document.getElementById("infoCtaBtn").addEventListener("click",()=>{
+    document.getElementById("infoCta").classList.add("hidden");
+    document.getElementById("infoSections").classList.add("active");
+    setTimeout(()=>document.getElementById("infoSections").scrollIntoView({behavior:"smooth"}),80);
   });
 });
