@@ -1,121 +1,84 @@
-const suites=[
-  {name:"The Engine Room",reason:"חברות שזזות מהר צריכות מרחב שמתאים לקצב — עם גישה מיידית לכל מה שצריך, ובלי בירוקרטיה.",tags:["אנרגיה גבוהה","גמישות מלאה","open space"],highlights:['80 מ"ר',"עד 30 אנשים","גישה מהירה לכניסה"],icons:["📐","👥","⚡"]},
-  {name:"The Corner",reason:"שני חלונות, שני כיוונים — בדיוק כמו חברה שיודעת לחשוב בכמה כיוונים בו זמנית.",tags:["אור טבעי","נוף כפול","פינתית"],highlights:['110 מ"ר',"עד 45 אנשים","פינתית עם נוף כפול"],icons:["📐","👥","🏙️"]},
-  {name:"The Kitchen Club",reason:"הרעיונות הכי טובים קורים ליד המטבח. הסוויטה הזו שם בדיוק — וגם הקפה.",tags:["ליד הקפה","אווירה חיה","מקצועי ואינפורמלי"],highlights:['95 מ"ר',"עד 35 אנשים","שני צעדים מהקפה"],icons:["📐","👥","☕"]},
-  {name:"The Skyline",reason:"כי חברה כמו שלכם צריכה לראות רחוק — לא רק לחשוב רחוק. הנוף הפנורמי הוא שלכם.",tags:["נוף פנורמי","קומה גבוהה","פרמיום"],highlights:['140 מ"ר',"עד 60 אנשים","נוף פנורמי לתל אביב"],icons:["📐","👥","🌇"]},
-  {name:"The Quiet Floor",reason:"כשצריך לחשוב בשקט — באמת בשקט — זו הסוויטה שנבנתה בשבילכם. ריכוז מוחלט.",tags:["שקט מוחלט","פוקוס","מבודד"],highlights:['120 מ"ר',"עד 45 אנשים","הכי שקטה בבניין"],icons:["📐","👥","🎧"]},
-  {name:"The Flagship",reason:"הגדולה ביותר. הפרמיום ביותר. לחברות שלא מתפשרות — על כלום.",tags:["הכי גדולה","חדרי ישיבות פנימיים","פרסטיז'"],highlights:['220 מ"ר',"80+ אנשים","חדרי ישיבות פנימיים"],icons:["📐","👥","🏆"]}
+const S=[
+  {name:"The Engine Room",reason:"חברות שזזות מהר צריכות מרחב שמתאים לקצב — עם גישה מיידית לכל מה שצריך.",tags:["אנרגיה גבוהה","גמישות מלאה","open space"],stats:[{n:'80',l:'מ"ר'},{n:'30',l:'אנשים מקסימום'},{n:'כניסה ישירה',l:'יתרון'}]},
+  {name:"The Corner",reason:"שני חלונות, שני כיוונים — בדיוק כמו חברה שיודעת לחשוב בכמה כיוונים בו זמנית.",tags:["אור טבעי","נוף כפול","פינתית"],stats:[{n:'110',l:'מ"ר'},{n:'45',l:'אנשים מקסימום'},{n:'נוף כפול',l:'ייחוד'}]},
+  {name:"The Kitchen Club",reason:"הרעיונות הכי טובים קורים ליד המטבח. הסוויטה הזו שם בדיוק — וגם הקפה.",tags:["ליד הקפה","אווירה חיה","מקצועי"],stats:[{n:'95',l:'מ"ר'},{n:'35',l:'אנשים מקסימום'},{n:'2 צעדים',l:'מהקפה'}]},
+  {name:"The Skyline",reason:"כי חברה כמו שלכם צריכה לראות רחוק — לא רק לחשוב רחוק. הנוף הפנורמי הוא שלכם.",tags:["נוף פנורמי","קומה גבוהה","פרמיום"],stats:[{n:'140',l:'מ"ר'},{n:'60',l:'אנשים מקסימום'},{n:'פנורמי',l:'נוף'}]},
+  {name:"The Quiet Floor",reason:"כשצריך לחשוב בשקט — באמת בשקט — זו הסוויטה שנבנתה בשבילכם.",tags:["שקט מוחלט","פוקוס","מבודד"],stats:[{n:'120',l:'מ"ר'},{n:'45',l:'אנשים מקסימום'},{n:'הכי שקטה',l:'בבניין'}]},
+  {name:"The Flagship",reason:"הגדולה ביותר. הפרמיום ביותר. לחברות שלא מתפשרות — על כלום.",tags:["הכי גדולה","חדרי ישיבות פנימיים","פרסטיז'"],stats:[{n:'220',l:'מ"ר'},{n:'80+',l:'אנשים'},{n:'פנטהאוס',l:'עסקי'}]},
 ];
-
-const answers={};
-let currentQ=0;
-const totalQ=6;
-
-function pickSuite(a){
-  const size=a[1];
-  const vibe=a[2];
-  const style=a[3];
-  const industry=a[0];
-  const secret=a[5];
-  if(size==="s80")return suites[5];
-  if(vibe==="view"||secret==="aesthetic")return suites[3];
-  if(vibe==="food"||secret==="vibe")return suites[2];
-  if(style==="focus"||secret==="privacy"||vibe==="quiet")return suites[4];
-  if(size==="s45")return suites[3];
-  if(industry==="investment"||industry==="crypto")return suites[3];
-  if(industry==="enterprise")return suites[1];
-  if(industry==="tech")return suites[0];
-  if(size==="s30")return suites[1];
-  return suites[0];
+function pick(a){
+  if(a[1]==='s80')return S[5];
+  if(a[2]==='view'||a[5]==='aesthetic')return S[3];
+  if(a[2]==='food'||a[5]==='vibe')return S[2];
+  if(a[3]==='focus'||a[5]==='privacy')return S[4];
+  if(a[1]==='s45')return S[3];
+  if(a[0]==='investment'||a[0]==='crypto')return S[3];
+  if(a[0]==='enterprise')return S[1];
+  if(a[0]==='tech')return S[0];
+  if(a[1]==='s30')return S[1];
+  return S[0];
 }
-
-function openQuiz(){
-  const modal=document.getElementById("quizSection");
-  modal.classList.add("active");
-  document.body.style.overflow="hidden";
+const ans={};let cur=0;const T=6;
+const $=id=>document.getElementById(id);
+function openQ(){$('quizModal').classList.add('open');document.body.style.overflow='hidden';refresh()}
+function closeQ(){$('quizModal').classList.remove('open');document.body.style.overflow=''}
+function goTo(i){
+  document.querySelectorAll('.question').forEach((q,j)=>q.classList.toggle('active',j===i));
+  cur=i;refresh();
 }
-
-function closeQuiz(){
-  const modal=document.getElementById("quizSection");
-  modal.classList.remove("active");
-  document.body.style.overflow="";
+function refresh(){
+  $('stepLabel').textContent=`שאלה ${cur+1} / ${T}`;
+  document.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+  const ok=ans[cur]!=null;
+  const nb=$('nextBtn');
+  nb.classList.toggle('on',ok);nb.disabled=!ok;
+  nb.textContent=cur===T-1?'← ראו את התוצאה':'← הבא';
+  $('backBtn').classList.toggle('hidden',cur===0);
 }
-
-function showContact(){
-  closeQuiz();
-  document.getElementById("contactSection").classList.remove("hidden");
-  document.getElementById("infoCta").classList.remove("hidden");
-  setTimeout(()=>document.getElementById("contactSection").scrollIntoView({behavior:"smooth"}),80);
-}
-
-function updateProgress(){
-  document.getElementById("progressFill").style.width=((currentQ+1)/totalQ*100)+"%";
-  document.getElementById("questionCount").textContent=`שאלה ${currentQ+1} מתוך ${totalQ}`;
-}
-
-function goToQuestion(i){
-  document.querySelectorAll(".question").forEach((q,j)=>{
-    q.classList.remove("active","entering");
-    if(j===i)q.classList.add("active","entering");
-  });
-  currentQ=i;
-  updateProgress();
-}
-
 function showResult(){
-  closeQuiz();
-  const s=pickSuite(answers);
-  document.getElementById("resultSuiteName").textContent=s.name;
-  document.getElementById("resultReason").textContent=s.reason;
-  document.getElementById("resultTags").innerHTML=s.tags.map(t=>`<span class="tag">${t}</span>`).join("");
-  document.querySelectorAll(".highlight-text").forEach((el,i)=>{if(s.highlights[i])el.textContent=s.highlights[i]});
-  document.querySelectorAll(".highlight-icon").forEach((el,i)=>{if(s.icons[i])el.textContent=s.icons[i]});
-  document.getElementById("resultSection").classList.remove("hidden");
-  document.getElementById("infoCta").classList.remove("hidden");
-  window.scrollTo({top:0,behavior:"smooth"});
+  closeQ();
+  const s=pick(ans);
+  $('rName').textContent=s.name;
+  $('rReason').textContent=s.reason;
+  $('rTags').innerHTML=s.tags.map(t=>`<span class="tag">${t}</span>`).join('');
+  $('rStats').innerHTML=s.stats.map((st,i)=>(i>0?'<div class="sdiv"></div>':'')+`<div class="stat"><span class="snum">${st.n}</span><span class="slbl">${st.l}</span></div>`).join('');
+  $('hero').classList.add('hidden');
+  $('resultSection').classList.remove('hidden');
+  window.scrollTo({top:0,behavior:'smooth'});
 }
-
-document.addEventListener("DOMContentLoaded",()=>{
-  document.getElementById("startBtn").addEventListener("click",()=>{updateProgress();openQuiz()});
-
-  if(document.getElementById("navCtaBtn")){
-    document.getElementById("navCtaBtn").addEventListener("click",showContact);
-  }
-
-  document.getElementById("quizClose").addEventListener("click",closeQuiz);
-  document.getElementById("quizBackdrop").addEventListener("click",closeQuiz);
-
-  document.querySelectorAll(".option").forEach(btn=>{
-    btn.addEventListener("click",()=>{
-      btn.closest(".question").querySelectorAll(".option").forEach(o=>o.classList.remove("selected"));
-      btn.classList.add("selected");
-      answers[currentQ]=btn.dataset.value;
-      setTimeout(()=>{
-        if(currentQ<totalQ-1)goToQuestion(currentQ+1);
-        else showResult();
-      },280);
+document.addEventListener('DOMContentLoaded',()=>{
+  $('startBtn').addEventListener('click',()=>{goTo(0);openQ()});
+  $('navCtaBtn').addEventListener('click',()=>$('contactSection').scrollIntoView({behavior:'smooth'}));
+  $('quizClose').addEventListener('click',closeQ);
+  $('quizBackdrop').addEventListener('click',closeQ);
+  document.querySelectorAll('.radio-opt').forEach(el=>{
+    el.addEventListener('click',()=>{
+      el.closest('.question').querySelectorAll('.radio-opt').forEach(r=>r.classList.remove('sel'));
+      el.classList.add('sel');ans[cur]=el.querySelector('input').value;refresh();
     });
   });
-
-  document.getElementById("showFormBtn").addEventListener("click",showContact);
-
-  document.getElementById("retakeBtn").addEventListener("click",()=>{
-    Object.keys(answers).forEach(k=>delete answers[k]);
-    document.querySelectorAll(".option").forEach(o=>o.classList.remove("selected"));
-    currentQ=0;
-    goToQuestion(0);
-    openQuiz();
+  document.querySelectorAll('.pill').forEach(el=>{
+    el.addEventListener('click',()=>{
+      el.closest('.question').querySelectorAll('.pill').forEach(p=>p.classList.remove('sel'));
+      el.classList.add('sel');ans[cur]=el.dataset.v;refresh();
+      setTimeout(()=>{if(cur<T-1)goTo(cur+1);else showResult()},300);
+    });
   });
-
-  document.getElementById("contactForm").addEventListener("submit",e=>{
+  $('nextBtn').addEventListener('click',()=>{
+    if(!$('nextBtn').classList.contains('on'))return;
+    if(cur<T-1)goTo(cur+1);else showResult();
+  });
+  $('backBtn').addEventListener('click',()=>{if(cur>0)goTo(cur-1)});
+  $('showFormBtn').addEventListener('click',()=>$('contactSection').scrollIntoView({behavior:'smooth'}));
+  $('retakeBtn').addEventListener('click',()=>{
+    Object.keys(ans).forEach(k=>delete ans[k]);
+    document.querySelectorAll('.radio-opt,.pill').forEach(el=>el.classList.remove('sel'));
+    $('resultSection').classList.add('hidden');$('hero').classList.remove('hidden');
+    goTo(0);openQ();window.scrollTo({top:0});
+  });
+  $('contactForm').addEventListener('submit',e=>{
     e.preventDefault();
-    document.getElementById("contactForm").classList.add("hidden");
-    document.getElementById("formSuccess").classList.remove("hidden");
+    $('contactForm').classList.add('hidden');$('formSuccess').classList.remove('hidden');
   });
-
-  document.getElementById("infoCtaBtn").addEventListener("click",()=>{
-    document.getElementById("infoCta").classList.add("hidden");
-    document.getElementById("infoSections").classList.add("active");
-    setTimeout(()=>document.getElementById("infoSections").scrollIntoView({behavior:"smooth"}),80);
-  });
+  refresh();
 });

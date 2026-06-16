@@ -1,240 +1,213 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mindspace Beyond — תל אביב</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Assistant:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mindspace Beyond — תל אביב</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- HERO -->
-  <section class="hero" id="hero">
-    <nav class="nav">
-      <button class="nav-cta" id="navCtaBtn">קבעו פגישה</button>
-      <div class="nav-logo">Mindspace</div>
-    </nav>
-    <div class="hero-content">
-      <p class="hero-eyebrow">TEL AVIV · EARLY ACCESS</p>
-      <h1 class="hero-headline">Mindspace Beyond</h1>
-      <p class="hero-sub">מתחם העסקים החדש של תל אביב.<br/>על גבול ת"א – גבעתיים, במרחק דקות מרכבת ארלוזורוב.</p>
-      <button class="btn-primary" id="startBtn">גלו איזה משרד מחכה לכם ←</button>
-    </div>
-    <div class="hero-scroll-hint">↓</div>
-  </section>
 
+<nav class="nav" id="mainNav">
+  <div class="nav-logo">Mindspace</div>
+  <button class="nav-cta" id="navCtaBtn">קבעו פגישה</button>
+</nav>
 
-  <!-- QUIZ MODAL -->
-  <div class="quiz-modal" id="quizSection">
-    <div class="quiz-backdrop" id="quizBackdrop"></div>
-    <div class="quiz-card-stack">
-      <div class="quiz-card">
-        <button class="quiz-close" id="quizClose">✕</button>
-        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-        <div class="question-count" id="questionCount">שאלה 1 מתוך 6</div>
-        <div class="questions-wrapper">
+<section class="hero" id="hero">
+  <div class="hero-content">
+    <h1 class="hero-headline">Mindspace Beyond</h1>
+    <p class="hero-sub">
+      המתחם הפרמיום החדש של תל אביב.<br>
+      עיצוב עולמי, שירות אישי, נוף שמשנה פרספקטיבה.<br>
+      כי יש מקומות שעובדים בהם — ויש מקומות שבהם קורים דברים.
+    </p>
+    <button class="btn-cta" id="startBtn">גלו איזה משרד מחכה לכם ←</button>
+  </div>
+</section>
 
-        <!-- Q1: Industry -->
-        <div class="question active" data-q="0">
-          <h2 class="q-title">בואו נכיר —<br/>מה אתם בעצם?</h2>
-          <p class="q-sub">תהיו כנים. אנחנו לא שופטים. (ממש לא.)</p>
-          <div class="options-grid">
-            <button class="option" data-value="investment">📈 השקעות / VC / פייננשל</button>
-            <button class="option" data-value="crypto">₿ קריפטו / Web3 / בלוקצ'יין</button>
-            <button class="option" data-value="tech">🚀 הייטק / פינטק / סטארטאפ</button>
-            <button class="option" data-value="lifestyle">🎨 לייפסטייל / מותג / קריאייטיב</button>
-            <button class="option" data-value="enterprise">🏛️ חברה מבוססת / תאגיד / משפט</button>
-            <button class="option" data-value="other">✨ משהו שעדיין לא המצאו לו שם</button>
-          </div>
+<div class="quiz-modal" id="quizModal">
+  <div class="quiz-backdrop" id="quizBackdrop"></div>
+  <div class="hero-ghost">Mindspace Beyond</div>
+  <div class="quiz-wrap">
+    <div class="quiz-card">
+      <button class="quiz-close" id="quizClose">✕</button>
+      <div class="step-label" id="stepLabel">שאלה 1 / 6</div>
+
+      <div class="question active" data-q="0">
+        <h2 class="q-title">בואו נכיר —<br>מה אתם בעצם?</h2>
+        <p class="q-sub">תהיו כנים. אנחנו לא שופטים. (ממש לא.)</p>
+        <div class="opts-radio">
+          <label class="radio-opt"><span class="rdot"></span><span>השקעות / VC / פייננשל</span><input type="radio" name="q0" value="investment" hidden></label>
+          <label class="radio-opt"><span class="rdot"></span><span>קריפטו / Web3 / בלוקצ'יין</span><input type="radio" name="q0" value="crypto" hidden></label>
+          <label class="radio-opt"><span class="rdot"></span><span>הייטק / פינטק / סטארטאפ</span><input type="radio" name="q0" value="tech" hidden></label>
+          <label class="radio-opt"><span class="rdot"></span><span>לייפסטייל / מותג / קריאייטיב</span><input type="radio" name="q0" value="lifestyle" hidden></label>
+          <label class="radio-opt"><span class="rdot"></span><span>חברה מבוססת / תאגיד / משפט</span><input type="radio" name="q0" value="enterprise" hidden></label>
+          <label class="radio-opt"><span class="rdot"></span><span>משהו שעדיין לא המצאו לו שם</span><input type="radio" name="q0" value="other" hidden></label>
         </div>
+      </div>
 
-        <!-- Q2: Size -->
-        <div class="question" data-q="1">
-          <h2 class="q-title">כמה נשמות<br/>מגיעות איתכם?</h2>
-          <p class="q-sub">כולל מי שאומרים "עובד מהבית" אבל תמיד כאן בפועל.</p>
-          <div class="options-grid size-grid">
-            <button class="option" data-value="s15"><span class="size-num">15–30</span><span class="size-label">צוות מיקוד</span></button>
-            <button class="option" data-value="s30"><span class="size-num">31–45</span><span class="size-label">חברה צומחת</span></button>
-            <button class="option" data-value="s45"><span class="size-num">46–80</span><span class="size-label">מחלקה שלמה</span></button>
-            <button class="option" data-value="s80"><span class="size-num">80+</span><span class="size-label">בית חדש לחברה</span></button>
-          </div>
+      <div class="question" data-q="1">
+        <h2 class="q-title">כמה נשמות<br>מגיעות איתכם?</h2>
+        <p class="q-sub">כולל מי שאומרים "עובד מהבית" אבל תמיד כאן בפועל.</p>
+        <div class="opts-pills grid2">
+          <button class="pill" data-v="s15"><b>15–30</b><small>צוות מיקוד</small></button>
+          <button class="pill" data-v="s30"><b>31–45</b><small>חברה צומחת</small></button>
+          <button class="pill" data-v="s45"><b>46–80</b><small>מחלקה שלמה</small></button>
+          <button class="pill" data-v="s80"><b>80+</b><small>בית חדש לחברה</small></button>
         </div>
+      </div>
 
-        <!-- Q3: Office lifestyle -->
-        <div class="question" data-q="2">
-          <h2 class="q-title">מה גורם לצוות<br/>שלכם לקום בבוקר?</h2>
-          <p class="q-sub">מלבד המשכורת. ברור שמלבד המשכורת.</p>
-          <div class="options-grid">
-            <button class="option" data-value="view">🌇 נוף שגורם לשלוח תמונה להורים</button>
-            <button class="option" data-value="food">☕ קפה ואוכל טוב — 80% מוטיבציה</button>
-            <button class="option" data-value="fitness">💪 חדר כושר ובריכה לפני/אחרי עבודה</button>
-            <button class="option" data-value="events">🎭 אירועים, לקוחות VIP, ייצוגיות</button>
-          </div>
+      <div class="question" data-q="2">
+        <h2 class="q-title">מה גורם לצוות<br>שלכם לקום בבוקר?</h2>
+        <p class="q-sub">מלבד המשכורת. ברור שמלבד המשכורת.</p>
+        <div class="opts-radio">
+          <label class="radio-opt"><span class="rdot"></span><span>נוף שגורם לשלוח תמונה להורים</span><input type="radio" name="q2" value="view" hidden></label>
+          <label class="radio-opt"><span class="rdot"></span><span>קפה ואוכל טוב — 80% מוטיבציה</span><input type="radio" name="q2" value="food" hidden></label>
+          <label class="radio-opt"><span class="rdot"></span><span>חדר כושר ובריכה לפני/אחרי עבודה</span><input type="radio" name="q2" value="fitness" hidden></label>
+          <label class="radio-opt"><span class="rdot"></span><span>אירועים, לקוחות VIP, ייצוגיות</span><input type="radio" name="q2" value="events" hidden></label>
         </div>
+      </div>
 
-        <!-- Q4: Work style -->
-        <div class="question" data-q="3">
-          <h2 class="q-title">יום עבודה<br/>אידיאלי אצלכם:</h2>
-          <p class="q-sub">תהיו כנים. אנחנו לא הבוסים שלכם (בינתיים).</p>
-          <div class="options-grid">
-            <button class="option" data-value="collab">🤝 כולם ביחד — רועשים ומלאי אנרגיה</button>
-            <button class="option" data-value="focus">🧠 ממוקדים, שקטים, עמוק בתוך הקוד</button>
-            <button class="option" data-value="hybrid">⚡ חצי סטארטאפ, חצי בוטיק יוקרתי</button>
-            <button class="option" data-value="meetings">📅 פגישות עסקיות, לקוחות, ייצוגיות</button>
-          </div>
+      <div class="question" data-q="3">
+        <h2 class="q-title">יום עבודה<br>אידיאלי אצלכם:</h2>
+        <p class="q-sub">תהיו כנים. אנחנו לא הבוסים שלכם.</p>
+        <div class="opts-pills grid1">
+          <button class="pill" data-v="collab">כולם ביחד — רועשים ומלאי אנרגיה</button>
+          <button class="pill" data-v="focus">ממוקדים, שקטים, עמוק בתוך הקוד</button>
+          <button class="pill" data-v="hybrid">חצי סטארטאפ, חצי בוטיק יוקרתי</button>
+          <button class="pill" data-v="meetings">פגישות עסקיות, לקוחות, ייצוגיות</button>
         </div>
+      </div>
 
-        <!-- Q5: Current situation -->
-        <div class="question" data-q="4">
-          <h2 class="q-title">מאיפה<br/>אתם מגיעים?</h2>
-          <p class="q-sub">כדי שנבין לאן אתם בורחים. ולמה.</p>
-          <div class="options-grid">
-            <button class="option" data-value="moving">📦 עוברים ממתחם אחר — הגיע הזמן</button>
-            <button class="option" data-value="remote">🏠 עובדים מהבית — אבל הגוף כבר מספיק</button>
-            <button class="option" data-value="expanding">🌍 פותחים נקודה חדשה בתל אביב</button>
-            <button class="option" data-value="growing">🔥 גדלים מהר ומחפשים מקום שיגדל איתנו</button>
-          </div>
+      <div class="question" data-q="4">
+        <h2 class="q-title">מאיפה<br>אתם מגיעים?</h2>
+        <p class="q-sub">כדי שנבין לאן אתם בורחים. ולמה.</p>
+        <div class="opts-radio">
+          <label class="radio-opt"><span class="rdot"></span><span>עוברים ממתחם אחר — הגיע הזמן</span><input type="radio" name="q4" value="moving" hidden></label>
+          <label class="radio-opt"><span class="rdot"></span><span>עובדים מהבית — אבל הגוף כבר מספיק</span><input type="radio" name="q4" value="remote" hidden></label>
+          <label class="radio-opt"><span class="rdot"></span><span>פותחים נקודה חדשה בתל אביב</span><input type="radio" name="q4" value="expanding" hidden></label>
+          <label class="radio-opt"><span class="rdot"></span><span>גדלים מהר ומחפשים מקום שיגדל איתנו</span><input type="radio" name="q4" value="growing" hidden></label>
         </div>
+      </div>
 
-        <!-- Q6: Wild card -->
-        <div class="question" data-q="5">
-          <h2 class="q-title">ושאלה אחרונה —<br/>מה הסוד שלכם?</h2>
-          <p class="q-sub">מה הדבר שבלעדיו המשרד פשוט לא עובד?</p>
-          <div class="options-grid">
-            <button class="option" data-value="aesthetic">🌿 שיהיה יפה ושקט — aesthetics matter</button>
-            <button class="option" data-value="privacy">🔐 פרטיות ואבטחה מלאה — אנחנו מזה</button>
-            <button class="option" data-value="wellness">🏋️ גישה יומית ל-Holmes Place, לא ברירה</button>
-            <button class="option" data-value="vibe">🎉 מקום שמרגיש כמו אירוע גם ביום שלישי</button>
-          </div>
+      <div class="question" data-q="5">
+        <h2 class="q-title">ושאלה אחרונה —<br>מה הסוד שלכם?</h2>
+        <p class="q-sub">מה הדבר שבלעדיו המשרד פשוט לא עובד?</p>
+        <div class="opts-pills grid2">
+          <button class="pill" data-v="aesthetic">שיהיה יפה ושקט<br><small>aesthetics matter</small></button>
+          <button class="pill" data-v="privacy">פרטיות ואבטחה מלאה<br><small>אנחנו מזה</small></button>
+          <button class="pill" data-v="wellness">גישה יומית ל-Holmes Place<br><small>לא ברירה</small></button>
+          <button class="pill" data-v="vibe">מקום שמרגיש כמו אירוע<br><small>גם ביום שלישי</small></button>
         </div>
+      </div>
 
+      <div class="quiz-footer">
+        <div class="quiz-dots" id="quizDots">
+          <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+        <div class="quiz-nav">
+          <button class="btn-next" id="nextBtn" disabled>← הבא</button>
+          <button class="btn-back hidden" id="backBtn">חזרה</button>
         </div>
       </div>
     </div>
   </div>
+</div>
 
-  <!-- RESULT -->
-  <section class="result-section hidden" id="resultSection">
-    <div class="result-container">
-      <p class="result-eyebrow">המשרד שבחרנו בשבילכם</p>
-      <h2 class="result-suite-name" id="resultSuiteName"></h2>
-      <p class="result-reason" id="resultReason"></p>
-      <div class="result-tags" id="resultTags"></div>
-      <div class="suite-highlights">
-        <div class="highlight-card"><span class="highlight-icon">📐</span><span class="highlight-text" id="hText1"></span></div>
-        <div class="highlight-card"><span class="highlight-icon">👥</span><span class="highlight-text" id="hText2"></span></div>
-        <div class="highlight-card"><span class="highlight-icon">🌇</span><span class="highlight-text" id="hText3"></span></div>
-      </div>
-      <div class="result-cta">
-        <p class="result-cta-text">רוצים לראות אותו בעיניים?</p>
-        <button class="btn-primary" id="showFormBtn">קבעו סיור עכשיו ←</button>
-        <button class="btn-ghost-light" id="retakeBtn">חזרה לשאלות</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="contact-section hidden" id="contactSection">
-    <div class="contact-container">
-      <div class="contact-left">
-        <p class="contact-eyebrow">בואו נדבר</p>
-        <h2 class="contact-headline">רוצים לשמוע פרטים?</h2>
-        <p class="contact-sub">נחזור אליכם תוך יום עסקים. לא הבטחה — פשוט ככה אנחנו עובדים.</p>
-        <div class="contact-details">
-          <a href="tel:+97236001234" class="contact-item"><span class="contact-icon">📞</span><span>03-600-1234</span></a>
-          <a href="mailto:beyond@mindspace.me" class="contact-item"><span class="contact-icon">✉️</span><span>beyond@mindspace.me</span></a>
-          <div class="contact-item"><span class="contact-icon">📍</span><span>רח' אריאל שרון 4, תל אביב<br/>ליד תחנת סבידור מרכז</span></div>
-        </div>
-      </div>
-      <div class="contact-right">
-        <form class="contact-form" id="contactForm">
-          <div class="form-row">
-            <input type="text" placeholder="שם פרטי *" required />
-            <input type="text" placeholder="שם משפחה *" required />
-          </div>
-          <div class="form-row">
-            <input type="email" placeholder="אימייל *" required />
-            <input type="tel" placeholder="טלפון *" required />
-          </div>
-          <input type="text" placeholder="שם החברה *" required />
-          <select style="width:100%;padding:15px 18px;background:rgba(255,255,255,0.07);border:1.5px solid rgba(240,230,206,0.15);border-radius:10px;font-family:'Assistant',sans-serif;font-size:15px;color:rgba(200,184,152,0.8);direction:rtl;outline:none;appearance:none;cursor:pointer">
-            <option value="" disabled selected>גודל הצוות</option>
-            <option value="15-30">15–30 עובדים</option>
-            <option value="31-45">31–45 עובדים</option>
-            <option value="46-80">46–80 עובדים</option>
-            <option value="80+">80+ עובדים</option>
-          </select>
-          <button type="submit" class="btn-primary btn-full">לקביעת סיור ←</button>
-          <p class="form-privacy">לא מעבירים פרטים לאף אחד. אי פעם.</p>
-        </form>
-        <div class="form-success hidden" id="formSuccess">
-          <div class="success-icon">✓</div>
-          <h3>קיבלנו!</h3>
-          <p>ניצור איתכם קשר בקרוב.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- INFO CTA -->
-  <div class="info-cta-wrap hidden" id="infoCta">
-    <p style="font-size:13px;font-weight:500;letter-spacing:0.28em;text-transform:uppercase;color:var(--brown-light);margin-bottom:18px">רוצים לדעת עוד?</p>
-    <button class="btn-primary btn-dark" id="infoCtaBtn">ספרו לי יותר על המקום ↓</button>
-  </div>
-
-  <!-- INFO SECTIONS -->
-  <div class="info-sections" id="infoSections">
-    <!-- 1: Design -->
-    <div class="info-row">
-      <div class="info-img"><img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=900&auto=format&fit=crop" alt="עיצוב משרד" /></div>
-      <div class="info-text">
-        <p class="info-eyebrow">עיצוב ואדריכלות</p>
-        <h3 class="info-title">חלל שנבנה<br/>כדי לעורר השראה</h3>
-        <p class="info-body">כל פרט ב-Mindspace Beyond תוכנן בקפידה — מהאדריכלות הפנימית ועד לתאורה. חללים שמרגישים כמו ביתכם, עובדים כמו משרד מהשורה הראשונה, ונראים כמו שיש לכם טעם מעולה.</p>
-      </div>
-    </div>
-    <!-- 2: Partners -->
-    <div class="info-row">
-      <div class="info-text">
-        <p class="info-eyebrow">שירותים ושותפים</p>
-        <h3 class="info-title">הכל כבר<br/>כאן בשבילכם</h3>
-        <p class="info-body">גישה ישירה לחדר הכושר ולבריכה של Holmes Place Premium, מסעדות ובתי קפה מהשורה הראשונה — הכל תחת אותה קורת גג. כי הפסקת הצהריים האידיאלית לא אמורה לדרוש תכנון מוקדם.</p>
-        <div class="info-partners">
-          <span class="partner-badge">Holmes Place</span>
-          <span class="partner-badge">קולינריה פרמיום</span>
-          <span class="partner-badge">בתי קפה</span>
-          <span class="partner-badge">שירותי רווחה</span>
-        </div>
-      </div>
-      <div class="info-img"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=900&auto=format&fit=crop" alt="בריכת שחייה" /></div>
-    </div>
-    <!-- 3: Experience -->
-    <div class="info-row">
-      <div class="info-img"><img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=900&auto=format&fit=crop" alt="ניסיון עסקי" /></div>
-      <div class="info-text">
-        <p class="info-eyebrow">ניסיון של עשור</p>
-        <h3 class="info-title">עשר שנות<br/>אירוח בכיתה עולמית</h3>
-        <p class="info-body">Mindspace פועלת מאז 2014 ב-20+ ערים ברחבי העולם. למדנו מה חברות צריכות באמת — לא רק שולחן וכיסא, אלא קהילה, גמישות ושירות שמרגיש אישי. הניסיון הזה מגיע איתנו לתל אביב.</p>
-      </div>
-    </div>
-    <!-- 4: Events -->
-    <div class="info-row">
-      <div class="info-text">
-        <p class="info-eyebrow">אירועים ויוקרה</p>
-        <h3 class="info-title">האירועים הגדולים<br/>של מרכז ישראל</h3>
-        <p class="info-body">המתחם הגדול ביותר מסוגו בגוש דן — עם אולמות, חדרי כנסים וחללים שמתאימים לכל אירוע, מהשקת מוצר ועד כנס תעשייתי. כי חברות שגדלות צריכות גם מקום שמכיל את ההצלחה שלהן.</p>
-      </div>
-      <div class="info-img"><img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=900&auto=format&fit=crop" alt="אירוע עסקי" /></div>
+<section class="result hidden" id="resultSection">
+  <div class="result-inner">
+    <p class="result-eye">המשרד שבחרנו בשבילכם</p>
+    <h2 class="result-name" id="rName"></h2>
+    <p class="result-reason" id="rReason"></p>
+    <div class="result-tags" id="rTags"></div>
+    <div class="result-stats" id="rStats"></div>
+    <div class="result-cta-row">
+      <p class="result-cta-lbl">רוצים לראות אותו בעיניים?</p>
+      <button class="btn-cta" id="showFormBtn">קבעו סיור ←</button>
+      <button class="btn-ghost" id="retakeBtn">חזרה לשאלות</button>
     </div>
   </div>
+</section>
 
-  <footer class="footer">
-    <span>© 2025 Mindspace Beyond · תל אביב</span>
-    <span>סבידור מרכז · גבעתיים</span>
-  </footer>
+<section class="info-row">
+  <div class="info-img"><img src="https://images.unsplash.com/photo-1497366412874-3415097a27e7?w=1200&auto=format&fit=crop&q=85" alt="לובי" loading="lazy"></div>
+  <div class="info-text">
+    <p class="eyebrow">עיצוב ואדריכלות</p>
+    <h3 class="info-title">חלל שנבנה<br>כדי לעורר השראה</h3>
+    <p class="info-body">כל פרט ב-Mindspace Beyond תוכנן בקפידה — מהאדריכלות הפנימית ועד לתאורה. חללים שמרגישים כמו ביתכם, עובדים כמו משרד מהשורה הראשונה.</p>
+  </div>
+</section>
 
-  <script src="main.js"></script>
+<section class="info-row rev">
+  <div class="info-text">
+    <p class="eyebrow">שירותים ושותפים</p>
+    <h3 class="info-title">הכל כבר<br>כאן בשבילכם</h3>
+    <p class="info-body">גישה ישירה לחדר הכושר ולבריכה של Holmes Place Premium, מסעדות ובתי קפה מהשורה הראשונה — הכל תחת אותה קורת גג.</p>
+    <div class="info-tags"><span>Holmes Place</span><span>קולינריה פרמיום</span><span>בתי קפה</span><span>שירותי רווחה</span></div>
+  </div>
+  <div class="info-img"><img src="https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?w=1200&auto=format&fit=crop&q=85" alt="בריכה" loading="lazy"></div>
+</section>
+
+<section class="info-row">
+  <div class="info-img"><img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1200&auto=format&fit=crop&q=85" alt="נוף" loading="lazy"></div>
+  <div class="info-text">
+    <p class="eyebrow">ניסיון של עשור</p>
+    <h3 class="info-title">הכל כבר<br>כאן בשבילכם</h3>
+    <p class="info-body">Mindspace פועלת מאז 2014 ב-20+ ערים ברחבי העולם. קהילה, גמישות ושירות שמרגיש אישי — הניסיון הזה מגיע איתנו לתל אביב.</p>
+  </div>
+</section>
+
+<section class="info-row rev">
+  <div class="info-text">
+    <p class="eyebrow">אירועים ויוקרה</p>
+    <h3 class="info-title">האירועים הגדולים<br>של מרכז ישראל</h3>
+    <p class="info-body">המתחם הגדול ביותר מסוגו בגוש דן — עם אולמות, חדרי כנסים וחללים שמתאימים לכל אירוע, מהשקת מוצר ועד כנס תעשייתי.</p>
+  </div>
+  <div class="info-img"><img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&auto=format&fit=crop&q=85" alt="אירוע" loading="lazy"></div>
+</section>
+
+<section class="contact" id="contactSection">
+  <div class="contact-grid">
+    <div class="contact-info">
+      <span class="contact-tag">בואו נדבר</span>
+      <h2 class="contact-headline">רוצים לשמוע פרטים?</h2>
+      <p class="contact-sub">נחזור אליכם תוך יום עסקים. לא הבטחה — פשוט ככה אנחנו עובדים.</p>
+      <div class="contact-details">
+        <a href="tel:+97236001234" class="ci"><span>📞</span><span>03-600-1234</span></a>
+        <a href="mailto:beyond@mindspace.me" class="ci"><span>✉️</span><span>beyond@mindspace.me</span></a>
+        <div class="ci"><span>📍</span><span>רח' אריאל שרון 4, גבעתיים<br>ליד תחנת סבידור מרכז</span></div>
+      </div>
+    </div>
+    <div class="contact-form-wrap">
+      <form id="contactForm">
+        <div class="frow">
+          <input type="text" placeholder="שם פרטי *" required>
+          <input type="text" placeholder="שם משפחה *" required>
+        </div>
+        <div class="frow">
+          <input type="email" placeholder="אימייל *" required>
+          <input type="tel" placeholder="טלפון *" required>
+        </div>
+        <input type="text" placeholder="שם החברה *" required>
+        <select><option value="" disabled selected>גודל הצוות</option><option>15–30 עובדים</option><option>31–45 עובדים</option><option>46–80 עובדים</option><option>80+ עובדים</option></select>
+        <button type="submit" class="btn-cta w100">לקביעת סיור ←</button>
+        <p class="form-note">לא מעבירים פרטים לאף אחד. אי פעם.</p>
+      </form>
+      <div class="form-ok hidden" id="formSuccess">
+        <div class="ok-icon">✓</div>
+        <h3>קיבלנו!</h3>
+        <p>ניצור איתכם קשר בקרוב.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <span>© 2025 Mindspace Beyond · תל אביב</span>
+  <span>סבידור מרכז · גבעתיים</span>
+</footer>
+
+<script src="main.js"></script>
 </body>
 </html>
